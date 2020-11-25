@@ -1,0 +1,730 @@
+{
+	"info": {
+		"_postman_id": "78b860da-215e-4196-ad2c-76236b585bc4",
+		"name": "Users (Peloton API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Me (Logged in User)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/me",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				},
+				"description": "Access information about the logged in user."
+			},
+			"response": []
+		},
+		{
+			"name": "User by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}"
+					]
+				},
+				"description": "Access user details and workouts completed by unique user id."
+			},
+			"response": []
+		},
+		{
+			"name": "User by Username",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_name}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_name}}"
+					]
+				},
+				"description": "Access user details and workouts completed by unique user name."
+			},
+			"response": []
+		},
+		{
+			"name": "User Workouts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/workouts",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"workouts"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Workouts (Join Ride Info)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/workouts?joins=ride,ride.instructor&limit=10&page=0",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"workouts"
+					],
+					"query": [
+						{
+							"key": "joins",
+							"value": "ride,ride.instructor"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				},
+				"description": "Access all user workouts with ride information joined in the payload."
+			},
+			"response": []
+		},
+		{
+			"name": "User Workout History CSV",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/workout_history_csv?timezone=America/New_York",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"workout_history_csv"
+					],
+					"query": [
+						{
+							"key": "timezone",
+							"value": "America/New_York"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Overview",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Peloton-Platform",
+						"value": "web",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/overview?version=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"overview"
+					],
+					"query": [
+						{
+							"key": "version",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Access user overview information.\n\n**Requires Peloton-Platform: web request header**"
+			},
+			"response": []
+		},
+		{
+			"name": "User Subscriptions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v2/user/subscriptions",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"user",
+						"subscriptions"
+					]
+				},
+				"description": "Access subscription information of the logged in user."
+			},
+			"response": []
+		},
+		{
+			"name": "User Subscription Transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/subscription/{{subscription_id}}/subscription_transactions?joins=transaction&limit=12",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"subscription",
+						"{{subscription_id}}",
+						"subscription_transactions"
+					],
+					"query": [
+						{
+							"key": "joins",
+							"value": "transaction"
+						},
+						{
+							"key": "limit",
+							"value": "12"
+						}
+					]
+				},
+				"description": "Access subscription information of the logged in user."
+			},
+			"response": []
+		},
+		{
+			"name": "User Achievements",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Peloton-Platform",
+						"value": "web",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/achievements",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"achievements"
+					]
+				},
+				"description": "Access user achievement information by unique user id."
+			},
+			"response": []
+		},
+		{
+			"name": "User Challenges (Current)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Peloton-Platform",
+						"value": "web",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/challenges/current?has_joined=true",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"challenges",
+						"current"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "has_joined",
+							"value": "true"
+						}
+					]
+				},
+				"description": "Access current Peloton user challenges by unique user id. The `has_joined` query param can be used to filter challenges you have joined."
+			},
+			"response": []
+		},
+		{
+			"name": "User Challenges (Upcoming)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Peloton-Platform",
+						"value": "web",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/challenges/upcoming?has_joined=false",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"challenges",
+						"upcoming"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "has_joined",
+							"value": "false"
+						}
+					]
+				},
+				"description": "Access upcoming Peloton user challenges. The `has_joined` query param can be used to filter challenges you have joined."
+			},
+			"response": []
+		},
+		{
+			"name": "User Challenges (Past)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Peloton-Platform",
+						"value": "web",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/challenges/past?has_joined=true",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"challenges",
+						"past"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "has_joined",
+							"value": "true"
+						}
+					]
+				},
+				"description": "Access past Peloton user challenges by unique user id. The `has_joined` query param can be used to filter challenges you have joined."
+			},
+			"response": []
+		},
+		{
+			"name": "User Followers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Peloton-Platform",
+						"value": "web",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/followers",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"followers"
+					]
+				},
+				"description": "Access user followers for a given user."
+			},
+			"response": []
+		},
+		{
+			"name": "User Following",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Peloton-Platform",
+						"value": "web",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/following",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"following"
+					]
+				},
+				"description": "Access user followers for a given user."
+			},
+			"response": []
+		},
+		{
+			"name": "User Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/user/search?user_query={{user_name}}&limit=40",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"search"
+					],
+					"query": [
+						{
+							"key": "user_query",
+							"value": "{{user_name}}"
+						},
+						{
+							"key": "limit",
+							"value": "40"
+						}
+					]
+				},
+				"description": "Search Peloton user by unique user name. Please note: this is different than user id."
+			},
+			"response": []
+		},
+		{
+			"name": "User Settings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/settings",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"settings"
+					]
+				},
+				"description": "Access user settings information."
+			},
+			"response": []
+		},
+		{
+			"name": "User Referral History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/referral_history",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"referral_history"
+					]
+				},
+				"description": "Access user referral history information."
+			},
+			"response": []
+		},
+		{
+			"name": "User Calendar Activity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/calendar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"calendar"
+					]
+				},
+				"description": "Access user calendar activity. This data is used to build the calendar activity on the Peloton user profile screen."
+			},
+			"response": []
+		},
+		{
+			"name": "Follow User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"action\": \"follow\",\n    \"user_id\": \"f42d9968258c4877b8aea54cbe51ad77\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/user/change_relationship",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"change_relationship"
+					]
+				},
+				"description": "Follow Peloton user by user id. Action must be \"follow\"."
+			},
+			"response": []
+		},
+		{
+			"name": "Unfollow User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"action\": \"unfollow\",\n    \"user_id\": \"f42d9968258c4877b8aea54cbe51ad77\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/user/change_relationship",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"change_relationship"
+					]
+				},
+				"description": "Unfollow Peloton user by user id. Action must be \"unfollow\"."
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"birthday\": 652060800,\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"gender\": \"male OR female OR non_binary\",\n    \"height\": 0,\n    \"height_unit\": \"imperial OR metric\",\n    \"last_name\": \"Ostrander\",\n    \"location\": \"Vienna, VA\",\n    \"phone_number\": \"string\",\n    \"username\": \"string\",\n    \"weight\": 100,\n    \"weight_unit\": \"imperial OR metrics\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}"
+					]
+				},
+				"description": "Update user profile information."
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Settings ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"block_explicit\": false,\n    \"distance_unit\": \"metric\",\n    \"privacy\": {\n        \"is_profile_private\": true,\n        \"classmates_can_chat_me\": false,\n        \"workout_maps_private\": true,\n        \"friends_can_chat_me\": true,\n        \"age\": false,\n        \"gender\": false,\n        \"effort_zones_private\": false,\n        \"new_facebook_friend_email_notification\": true,\n        \"new_follower_email_notification\": false\n    },\n    \"class_language_preferences\": [\n        {\n            \"locale\": \"en-US\",\n            \"locale_name\": \"English\",\n            \"display_all_classes\": true,\n            \"captions\": []\n        },\n        {\n            \"locale\": \"de-DE\",\n            \"locale_name\": \"German\",\n            \"display_all_classes\": false,\n            \"captions\": []\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/settings",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"settings"
+					]
+				},
+				"description": "Update user settings."
+			},
+			"response": []
+		},
+		{
+			"name": "User Workouts Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/workouts",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"workouts"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "44e9f014-9699-4fe0-8e5b-7a3a2954d4e5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3731fd63-f0d8-46c6-91e5-1ac5316766fe",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

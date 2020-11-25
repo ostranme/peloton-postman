@@ -1,0 +1,431 @@
+{
+	"info": {
+		"_postman_id": "5a954e31-7511-4d88-8082-df29e39b3339",
+		"name": "Rides / Classes (Peloton API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ride Metadata Mappings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/ride/metadata_mappings",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"ride",
+						"metadata_mappings"
+					]
+				},
+				"description": "Access metadata mappings for available rides."
+			},
+			"response": []
+		},
+		{
+			"name": "List Archived Rides",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v2/ride/archived?browse_category=strength&content_format=audio,video&limit=18&page=0&sort_by=original_air_time&desc=true",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"ride",
+						"archived"
+					],
+					"query": [
+						{
+							"key": "browse_category",
+							"value": "strength"
+						},
+						{
+							"key": "content_format",
+							"value": "audio,video"
+						},
+						{
+							"key": "limit",
+							"value": "18"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "sort_by",
+							"value": "original_air_time"
+						},
+						{
+							"key": "desc",
+							"value": "true"
+						}
+					]
+				},
+				"description": "Access archived rides.\n\nCategories:\n[Cycling, Running, Outdoor, Strength, Yoga, Meditation, Stretching, Bootcamp, Walking, Cardio]\n\nQuerying this endpoint with a specific query parameter will return JSON (truncated). This appears to be mainly used by the various applicatiions.\n\n```\n\"page_count\": Number of pages\n\"instructors\": Instructor info and data\n\"class_types\": List of all possible class types, regardless of category\n\"total\": Total number of available classes?\n\"data\": The actual ride data, lot's of good info in here!\n\"ride_types\": Appears to be another version of class_types\n\"count\": ???\n\"browse_categories\": used in the web app to load images\n\"fitness_disciplines\": Sets of data, probably used by the app to associate IDs and names\n\"show_next\": default seems to be true\n\"sort_by\": default is scheduled start time\n\"show_previous\": default is false\n\"page\": current page\n\"hide_explicit_rides\": defaults to null\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "List Live Rides",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Peloton-Platform",
+						"value": "web",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v3/ride/live?exclude_complete=true&content_provider=studio&exclude_live_in_studio_only=true&browse_category=cycling&start=1603944000&end=1605157199",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v3",
+						"ride",
+						"live"
+					],
+					"query": [
+						{
+							"key": "exclude_complete",
+							"value": "true"
+						},
+						{
+							"key": "content_provider",
+							"value": "studio"
+						},
+						{
+							"key": "exclude_live_in_studio_only",
+							"value": "true"
+						},
+						{
+							"key": "browse_category",
+							"value": "cycling"
+						},
+						{
+							"key": "start",
+							"value": "1603944000"
+						},
+						{
+							"key": "end",
+							"value": "1605157199"
+						}
+					]
+				},
+				"description": "Access live rides."
+			},
+			"response": []
+		},
+		{
+			"name": "Ride by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/ride/{{ride_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"ride",
+						"{{ride_id}}"
+					]
+				},
+				"description": "Access ride information by unique ride id."
+			},
+			"response": []
+		},
+		{
+			"name": "Ride Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/ride/{{ride_id}}/details",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"ride",
+						"{{ride_id}}",
+						"details"
+					]
+				},
+				"description": "Access additional metadata details for a given ride by id."
+			},
+			"response": []
+		},
+		{
+			"name": "Ride Details - Stream Source",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/ride/{{ride_id}}/details?stream_source=multichannel",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"ride",
+						"{{ride_id}}",
+						"details"
+					],
+					"query": [
+						{
+							"key": "stream_source",
+							"value": "multichannel"
+						}
+					]
+				},
+				"description": "Access stream source information for a given ride."
+			},
+			"response": []
+		},
+		{
+			"name": "Ride Filters",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Peloton-Platform",
+						"value": "web",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/ride/filters?include_icon_images=true&library_type=on_demand&browse_category=cycling",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"ride",
+						"filters"
+					],
+					"query": [
+						{
+							"key": "include_icon_images",
+							"value": "true"
+						},
+						{
+							"key": "library_type",
+							"value": "on_demand"
+						},
+						{
+							"key": "browse_category",
+							"value": "cycling"
+						}
+					]
+				},
+				"description": "Access filter options for rides."
+			},
+			"response": []
+		},
+		{
+			"name": "Ride Recent Followering Workouts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/ride/{{ride_id}}/recent_following_workouts?joins=user&limit=200",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"ride",
+						"{{ride_id}}",
+						"recent_following_workouts"
+					],
+					"query": [
+						{
+							"key": "joins",
+							"value": "user"
+						},
+						{
+							"key": "limit",
+							"value": "200"
+						}
+					]
+				},
+				"description": "Access recent following workouts for a given ride by id."
+			},
+			"response": []
+		},
+		{
+			"name": "Class Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/browse_categories?library_type=on_demand",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"browse_categories"
+					],
+					"query": [
+						{
+							"key": "library_type",
+							"value": "on_demand"
+						}
+					]
+				},
+				"description": "Access all Peloton workout categories."
+			},
+			"response": []
+		},
+		{
+			"name": "Favorite Class",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ride_id\": \"f83b7c04f5a54db993d688f8a2b5903d\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/favorites/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"favorites",
+						"create"
+					]
+				},
+				"description": "Bookmark/favorite a Peloton class."
+			},
+			"response": []
+		},
+		{
+			"name": "Unfavorite Class",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ride_id\": \"{{ride_id}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/favorites/delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"favorites",
+						"delete"
+					]
+				},
+				"description": "Remove a bookmarked/favorited Peloton class."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Reservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"location\": \"remote\",\n    \"peloton_id\": \"{{peloton_id}}\",\n    \"user_id\": \"{{user_id}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/reservation",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"reservation"
+					]
+				},
+				"description": "Reserve Peloton workout/class.\n\npeloton_id = class/workout id"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Reservation",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/reservation/{{peloton_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"reservation",
+						"{{peloton_id}}"
+					]
+				},
+				"description": "Remove class/workout reservation."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "eb90877a-ce88-4da4-bcf3-ec87d993a8c6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ae64a082-8e7b-4d76-9aed-e74f99cc355e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

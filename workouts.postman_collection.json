@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "ae6ada2f-cfcb-48df-8e09-bf1754f4172b",
+		"name": "Workouts (Peloton API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Workouts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/user/{{user_id}}/workouts",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"{{user_id}}",
+						"workouts"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Workout by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/workout/{{workout_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"workout",
+						"{{workout_id}}"
+					]
+				},
+				"description": "Access completed workout information by unique workout id."
+			},
+			"response": []
+		},
+		{
+			"name": "Workout by Id - Join Ride Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/workout/{{workout_id}}?joins=ride,ride.instructor&limit=10&page=0",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"workout",
+						"{{workout_id}}"
+					],
+					"query": [
+						{
+							"key": "joins",
+							"value": "ride,ride.instructor"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				},
+				"description": "Access completed workout information by unique workout id. Joins ride and instructor information."
+			},
+			"response": []
+		},
+		{
+			"name": "Workout by Id - Performance Graph",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/workout/{{workout_id}}/performance_graph?every_n=5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"workout",
+						"{{workout_id}}",
+						"performance_graph"
+					],
+					"query": [
+						{
+							"key": "every_n",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Workout by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/workout/{{workout_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"workout",
+						"{{workout_id}}"
+					]
+				},
+				"description": "Delete a completed workout by unique wourkout id."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1071d16f-d4f2-45eb-86f1-2bce87f3cf1a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4086dd12-7bc7-4f52-a4fc-0c526d7bcddf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "abb054a0-0228-44bd-a485-dea2d56de58e",
+		"name": "Instructors (Peloton API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All Instructors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/instructor",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"instructor"
+					]
+				},
+				"description": "The `/instructor` endpoint returns a list of all available Peloton instructors."
+			},
+			"response": []
+		},
+		{
+			"name": "Instructor by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/instructor/{{instructor_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"instructor",
+						"{{instructor_id}}"
+					]
+				},
+				"description": "Access the content of a single instructor by unique id."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "541ba724-4b44-4b34-bd06-4f49b9ebabca",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7327a083-2b46-4e7a-9ade-61a230bf0c27",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

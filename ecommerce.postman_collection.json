@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "3957ffe1-a676-4c84-b0e7-28ae57cb6815",
+		"name": "eCommerce  (Peloton API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Peloton Plans",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/ecomm/store/dotcom/digital_subscriptions/plans",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ecomm",
+						"store",
+						"dotcom",
+						"digital_subscriptions",
+						"plans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Peloton Stores",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "we",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/ecomm/store",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ecomm",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Peloton Bike Reviews",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "we",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/ecomm/product/bike/reviews?page=0&sort_by=-submittedAt",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ecomm",
+						"product",
+						"bike",
+						"reviews"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "sort_by",
+							"value": "-submittedAt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Peloton Account Order History",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "we",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/ecomm/orders",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ecomm",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Peloton Account Payment Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/ecomm/card",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ecomm",
+						"card"
+					]
+				},
+				"description": "Access logged in user's payment information."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "01754b28-cfb4-4551-b018-ae0b82571e7f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5d54b5e8-f0f7-4f28-bcf2-7088ae37cbb0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
